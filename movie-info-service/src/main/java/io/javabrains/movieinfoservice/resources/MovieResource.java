@@ -4,6 +4,7 @@ import io.javabrains.movieinfoservice.models.Movie;
 import io.javabrains.movieinfoservice.models.MovieSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ public class MovieResource {
     @Value("${api.key}")
     private String apiKey;
 
+    @LoadBalanced
     @Autowired
     private RestTemplate restTemplate;
 
